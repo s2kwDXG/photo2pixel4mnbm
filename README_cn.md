@@ -1,7 +1,7 @@
 # ![LOGO](images/doc/favicon-original.png) Photo2Pixel
 
 ---
-[English](./README.md) | 简体中文
+[日本語](./README.md) | [English](./README.md) | 简体中文
 
 [在线工具](https://photo2pixel.co/cn) |
 [Colab](https://colab.research.google.com/drive/108np4teybhBXHKbPMZZ1fykDuUeF2aw8?usp=sharing) |

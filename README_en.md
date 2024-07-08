@@ -1,14 +1,17 @@
-# Photo2PixelWithAlpha
+# ![LOGO](images/doc/favicon-original.png) Photo2Pixel
 
 ---
-日本語 | [English](./README_en.md) | [简体中文](./README_cn.md)
-
-photo2pixelWithAlpha オリジナルのphoto2pixelにアルファ付きの画像を加工可能に改変したものです。
-ピクセルアートっぽくしてくれるツールです。オリジナルのphoto2pixel制作者に敬意を表します。
+[日本語](./README.md) | English | [简体中文](./README_cn.md)
 
 [Online Tool](https://photo2pixel.co) |
 [Colab](https://colab.research.google.com/drive/108np4teybhBXHKbPMZZ1fykDuUeF2aw8?usp=sharing) |
 [Tutorial](#Tutorial)
+
+photo2pixel is an algorithm converting photo into pixel art. There is an [online converter photo2pixel.co](https://photo2pixel.co)
+. you can try different combination of pixel size and edge threshold to get the best result.
+
+<img src="images/doc/mountain_8bit_style_pixel.png" style="max-width: 850px" alt="mountain 8bit style pixel art"/>
+<img src="images/doc/holy_temple_8bit_style_pixel.png" style="max-width: 850px" alt="holy temple 8bit style pixel art">
 
 ## Prerequisites
 - python3
@@ -18,10 +21,10 @@ photo2pixelWithAlpha オリジナルのphoto2pixelにアルファ付きの画像
 
 ## Tutorial
 ---
-コマンドラインで動作します。下記のとおりです。
+or you can run it with command as bellow:
 
 ```bash
-# venv上で作業しましょう
+# venv上で作業します
 python -m venv .venv
 source .venv/bin/activate
 
@@ -34,8 +37,7 @@ pip install -r requirements.txt
 # main.pyを走らせる
 python main.py
 
-# images/origin_image 以下に配置されたpng画像全部を指定のパラメータに変換する
-# この時、アルファ値があるとそれも含めて全部変換してくれる
+# images/
 
 # or use custom param
 #python convert.py --kernel_size 12 --pixel_size 12 --edge_thresh 128
