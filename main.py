@@ -9,15 +9,20 @@ import os
 from models.module_photo2pixel2 import Photo2PixelModel
 from utils import img_common_util
 
-def convert(imagePath):
+def convert(imagePath, kernel_size=4, pixel_size=10, edge_thresh=2048):
     parser = argparse.ArgumentParser(description='algorithm converting photo to pixel art')
     parser.add_argument('--input', type=str, default="./" + imagePath, help='input image path')
-    parser.add_argument('-k', '--kernel_size', type=int, default=10, help='larger kernel size means smooth color transition')
-    parser.add_argument('-p', '--pixel_size', type=int, default=3, help='individual pixel size')
-    parser.add_argument('-e', '--edge_thresh', type=int, default=2048, help='lower edge threshold means more black line in edge region')
+    parser.add_argument('-k', '--kernel_size', type=int, default=kernel_size, help='larger kernel size means smooth color transition')
+    parser.add_argument('-p', '--pixel_size', type=int, default=pixel_size, help='individual pixel size')
+    parser.add_argument('-e', '--edge_thresh', type=int, default=edge_thresh, help='lower edge threshold means more black line in edge region')
     parser.add_argument('--resize', type=int, nargs=2, help='resize images to a fixed size (width height)')
-    args = parser.parse_args()
+    args = parser.parse_args([])  # 空のリストを渡してコマンドライン引数を無視
 
+    # 引数で渡された値を使用
+    args.kernel_size = kernel_size
+    args.pixel_size = pixel_size
+    args.edge_thresh = edge_thresh
+    
     # 出力ファイル名を生成
     base_name = os.path.basename(imagePath)
     file_name, file_extension = os.path.splitext(base_name)
@@ -88,4 +93,4 @@ if __name__ == '__main__':
     png_images = find_png_images(directory)
     for image in png_images:
         print(image)
-        convert(image)
+        convert(image, kernel_size=16, pixel_size=10, edge_thresh=2048)
