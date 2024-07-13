@@ -12,13 +12,18 @@ from utils import img_common_util
 def convert(imagePath):
     parser = argparse.ArgumentParser(description='algorithm converting photo to pixel art')
     parser.add_argument('--input', type=str, default="./" + imagePath, help='input image path')
-    parser.add_argument('--output', type=str, default="./result/" + imagePath + "_result.png", help='output image path')
     parser.add_argument('-k', '--kernel_size', type=int, default=10, help='larger kernel size means smooth color transition')
     parser.add_argument('-p', '--pixel_size', type=int, default=3, help='individual pixel size')
     parser.add_argument('-e', '--edge_thresh', type=int, default=2048, help='lower edge threshold means more black line in edge region')
     parser.add_argument('--resize', type=int, nargs=2, help='resize images to a fixed size (width height)')
     args = parser.parse_args()
 
+    # 出力ファイル名を生成
+    base_name = os.path.basename(imagePath)
+    file_name, file_extension = os.path.splitext(base_name)
+    output_file_name = f"{file_name}_k{args.kernel_size}_p{args.pixel_size}_e{args.edge_thresh}{file_extension}"
+    args.output = os.path.join("./result", output_file_name)
+    
     img_input = Image.open(args.input).convert("RGBA")
     
     if args.resize:
