@@ -8,3 +8,6 @@
 # オリジナル画像入れ場
 images/origin_image/
 
+# 結果のファイル
+result/
+

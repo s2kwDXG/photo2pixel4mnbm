@@ -6,7 +6,7 @@ import cv2  # OpenCVをインポート
 import argparse
 import os
 
-from models.module_photo2pixel2 import Photo2PixelModel
+from models.module_photo2pixel import Photo2PixelModel
 from utils import img_common_util
 
 def convert(imagePath, kernel_size=4, pixel_size=10, edge_thresh=2048):
