@@ -49,7 +49,7 @@ python main.py
 # この時、アルファ値があるとそれも含めて全部変換してくれる
 
 # or use custom param
-#python convert.py --kernel_size 12 --pixel_size 12 --edge_thresh 128
+python convert.py --kernel_size 12 --pixel_size 12 --edge_thresh 128
 ```
 
 | Parameter   |                                Description                                |    Range    |               Default               |
@@ -59,3 +59,27 @@ python main.py
 | kernel_size |             larger kernel size means smooth color transition              |  unlimited  |                 10                  |
 | pixel_size  |                           individual pixel size                           |  unlimited  |                 16                  |
 | edge_thresh | the black line in edge region, lower edge threshold means more black line |    0~255    |                 100                 |
+
+
+### input
+素材となるディレクトリを指定する。再帰的にディレクトリ階層を潜っていくため、不要な処理をしたくない場合は除いておく方が無難。
+
+### output
+inputで階層が深くなっていようとも、ここで記載したPathのRootにのっぺりと出力する。
+
+
+### kernel_size
+階調。少ない数字ほどパキッとする。
+
+
+### pixel_size
+Unityの2Dゲーム素材として使うなら4の倍数を指定しておくのが無難。
+
+
+### コピペ用
+```bash
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+python main.py --input ./images/origin_image/characters/1005400 --output result/1005400 --kernel_size 16 --pixel_size 8 --edge_thresh 255  
+```
